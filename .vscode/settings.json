@@ -1,0 +1,26 @@
+{
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "typescript.preferences.importModuleSpecifier": "non-relative",
+    "typescript.preferences.quoteStyle": "single",
+    "search.useIgnoreFiles": false,
+    "editor.formatOnSave": true,
+    "search.exclude": {
+        "**/node_modules/*": true,
+        "dist": true,
+        "documentation": true,
+        "ios": true,
+        "android": true,
+        "www": true,
+        ".angular": true,
+        "documentation.json": true,
+        "storybook-static": true,
+        "yarn.lock": true,
+        "yarn-error.log": true
+    },
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "files.associations": {
+        "*.svg": "html"
+    }
+}
