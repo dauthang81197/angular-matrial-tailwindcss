@@ -1,1 +1,22 @@
-<p>header works!</p>
+<div class="app-header">
+  <!--    Left-->
+  <div class="flex justify-center flex-col">
+    <!--    Breakcrumb-->
+    <div class="mt-1">
+      <app-bread-crumb></app-bread-crumb>
+    </div>
+    <!--    Icon menu-->
+    <div>
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </div>
+  </div>
+  <!--    Right-->
+  <div class="flex items-center justify-center gap-4">
+    <input placeholder="Search here" />
+    <mat-icon>account_circle</mat-icon>
+    <mat-icon>settings</mat-icon>
+    <mat-icon [matBadge]="'1'">notifications</mat-icon>
+  </div>
+</div>
