@@ -1,7 +1,8 @@
 # Structure
 
 CORE MODULE
-Core module is dedicated to singleton providers These services contain business logic used by other core services or app’s features.
+Core module is dedicated to singleton providers These services contain business logic used by other core services or
+app’s features.
 
 FEATURE MODULE
 Contain different feature modules
@@ -13,7 +14,9 @@ SHARED MODULE
 SharedModule is a place to store all the reusable components, directives, pipes, helpers and types
 
 VIEW MODULE
-Views module is another module that usually turns out to be quite simple. It holds the views that are not a part of any feature and whose routing paths are defined in AppRoutingModule. An example of such a view is a 404 page (PageNotFoundView)
+Views module is another module that usually turns out to be quite simple. It holds the views that are not a part of any
+feature and whose routing paths are defined in AppRoutingModule. An example of such a view is a 404 page (
+PageNotFoundView)
 
 ├── app
 | ├── app-routing.module.ts
