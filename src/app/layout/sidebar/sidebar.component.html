@@ -1,3 +1,32 @@
-<div class="side-bar rounded-xl">
-  test
+<div class="side-bar rounded-xl px-4">
+  <div class="flex align-center justify-center py-[30px] item-sidebar mb-4">
+    <p class="font-bold text-sm text-white">Material Dashboards</p>
+  </div>
+  <ng-container *ngFor="let item of sideBar">
+    <a
+      class="flex items-center justify-between py-[14px] bg-dark-mud mb-1 px-2 hover:bg-linear-red rounded cursor-pointer"
+      (click)="openOrCloseSideBarChildren(item?.name, !item.isOpen, item?.link)">
+      <div class="flex items-center justify-between gap-3">
+        <mat-icon>{{item.icon}}</mat-icon>
+        <p class="font-normal text-sm text-white">{{item.name}}</p>
+      </div>
+      <mat-icon
+        *ngIf="item.children &&!item.isOpen">{{item.level === 1 && 'expand_more'}}</mat-icon>
+      <mat-icon
+        *ngIf="item.children && item.isOpen">{{item.level === 1 && 'expand_less'}}</mat-icon>
+    </a>
+    <ng-container *ngIf="item.isOpen">
+      <ng-container *ngFor="let children of item.children">
+        <div class="flex items-center gap-3">
+          <mat-icon>{{children.icon}}</mat-icon>
+          <p class="font-normal text-sm text-white">{{children.name}}</p>
+        </div>
+      </ng-container>
+
+    </ng-container>
+
+  </ng-container>
+  <div>
+
+  </div>
 </div>
