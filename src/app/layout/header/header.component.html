@@ -3,8 +3,8 @@
   <div class="flex items-center justify-between gap-20">
     <!--    Breakcrumb-->
     <div class="mt-1">
-      <app-bread-crumb></app-bread-crumb>
-      <label>Test</label>
+      <app-bread-crumb [setBreadCrumbs]="breadCrumb"></app-bread-crumb>
+      <label>{{title}}</label>
     </div>
     <!--    Icon menu-->
     <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">

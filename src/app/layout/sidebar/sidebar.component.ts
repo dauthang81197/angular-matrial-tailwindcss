@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
 export interface SideBar {
@@ -17,6 +17,7 @@ export interface SideBar {
   styleUrls: ['./sidebar.component.scss'],
 })
 export class SidebarComponent implements OnInit {
+  @Output() changeTitleHeader= new EventEmitter<string>();
   sideBar: SideBar[];
 
   constructor(private _router: Router) {
@@ -29,15 +30,15 @@ export class SidebarComponent implements OnInit {
         isOpen: false
       },
       {
-        name: 'Analytics',
-        icon: 'cached',
+        name: 'Component',
+        icon: 'apps',
         isOpen: false,
         level: 1,
         children: [
           {
-            name: 'Child 1',
-            link: 'child1',
-            icon: 'cached',
+            name: 'Google maps',
+            link: 'components/google-maps',
+            icon: 'map',
             isOpen: false,
           },
           {
@@ -56,6 +57,7 @@ export class SidebarComponent implements OnInit {
 
   openOrCloseSideBarChildren(name: string | undefined, isOpen: boolean, link?: string): void {
     if (link) {
+      this.changeTitleHeader.emit(name);
       void this._router.navigate([link])
       return;
     }
