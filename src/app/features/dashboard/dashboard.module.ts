@@ -5,7 +5,6 @@ import { dashboardRoutes } from '@app/features/dashboard/dashboard.routing.modul
 import { DashboardComponent } from '@app/features/dashboard/dashboard.component';
 
 
-
 @NgModule({
   declarations: [DashboardComponent],
   imports: [

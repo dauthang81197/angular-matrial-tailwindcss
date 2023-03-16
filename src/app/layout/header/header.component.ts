@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -6,8 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  breadCrumb: { label: string, value: string }[] = []
+  @Input() title: string = 'test';
 
-  constructor() { }
+  @Input() set setBreadCrumb(value: { label: string, value: string }[]) {
+    this.breadCrumb = value
+  }
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

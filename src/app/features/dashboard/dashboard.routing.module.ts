@@ -6,6 +6,5 @@ export const dashboardRoutes: Route[] = [
   {
     path: '',
     component: DashboardComponent,
-    children: [],
   },
 ];

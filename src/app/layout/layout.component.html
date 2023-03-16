@@ -1,8 +1,11 @@
 <div class="p-4 flex h-[100vh]">
-  <app-sidebar class="min-w-[250px] max-w-[250px] w-full max-h-1048px"></app-sidebar>
+  <app-sidebar class="min-w-[250px] max-w-[250px] w-full max-h-1048px" (changeTitleHeader)="changedTitleHeader($event)"></app-sidebar>
   <div class="w-full p-8">
-    <app-header></app-header>
-    <ng-content></ng-content>
+    <app-header [title]="title" [setBreadCrumb]="breadcrumb"></app-header>
+    <div class="max-height-full my-8">
+      <router-outlet></router-outlet>
+    </div>
+
   </div>
 
 </div>

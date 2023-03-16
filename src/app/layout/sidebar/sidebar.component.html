@@ -17,10 +17,14 @@
     </a>
     <ng-container *ngIf="item.isOpen">
       <ng-container *ngFor="let children of item.children">
-        <div class="flex items-center gap-3">
-          <mat-icon>{{children.icon}}</mat-icon>
-          <p class="font-normal text-sm text-white">{{children.name}}</p>
-        </div>
+        <a
+          class="flex items-center justify-between py-[14px] mb-1 px-2 bg-black-100-custom hover:bg-linear-red rounded cursor-pointer"
+          (click)="openOrCloseSideBarChildren(children?.name, !children.isOpen, children?.link)">
+          <div class="flex items-center justify-between gap-3">
+            <mat-icon>{{children.icon}}</mat-icon>
+            <p class="font-normal text-sm text-white">{{children.name}}</p>
+          </div>
+        </a>
       </ng-container>
 
     </ng-container>
