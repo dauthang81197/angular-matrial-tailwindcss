@@ -1,9 +1,7 @@
 name: Issue Creation Tracker
 on:
-  # issues:
-  #   types: [opened]
   pull_request:
-    types: [opened, reopened, closed]
+    types: [ opened, reopened, closed ]
 jobs:
   build:
     runs-on: ubuntu-latest
