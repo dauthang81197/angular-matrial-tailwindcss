@@ -8,7 +8,7 @@ jobs:
     steps:
       - name: Notification new request
         run: |
-          curl --location --request POST '${{ secrets.WEBHOOK }}' \
+          curl --location --request POST '${{ secrets.WEB_HOOK_GOOGLE_CHAT_1 }}' \
           --header 'Content-Type: application/json' \
           --data-raw '{
               "cards": [
@@ -67,7 +67,7 @@ jobs:
       - name: Merged request
         if: github.event.pull_request.merged == true
         run: |
-          curl --location --request POST '${{ secrets.WEBHOOK }}' \
+          curl --location --request POST '${{ secrets.WEB_HOOK_GOOGLE_CHAT_1 }}' \
           --header 'Content-Type: application/json' \
           --data-raw '{
               "cards": [
