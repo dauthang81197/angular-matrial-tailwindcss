@@ -1,14 +1,23 @@
 name: Issue Creation Tracker
 on:
-  # issues:
-  #   types: [opened]
-  pull_request:
-    types: [opened, reopened, closed]
+  issues:
+    types: [opened]
+
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Notification new request
+      - name: Git Issue Details
+        run: |
+          echo "Issue creator: ${{ github.event.issue.user.login }}"
+          echo "Issue title: ${{ github.event.issue.title }}"
+          echo "Issue number: ${{ github.event.issue.number }}"
+          echo "Issue url: ${{ github.event.issue.html_url }}"
+          echo "Issue body: ${{ github.event.issue.body }}"
+          echo "Assigned labels: " ${{ join(github.event.issue.labels.*.name) }}
+          echo "Assignees: " ${{ join(github.event.issue.assignees.*.login) }}
+      - name: Google Chat Notification
         run: |
           curl --location --request POST '${{ secrets.WEBHOOK }}' \
           --header 'Content-Type: application/json' \
@@ -16,8 +25,8 @@ jobs:
               "cards": [
                   {
                       "header": {
-                          "title": "Pull Request",
-                          "subtitle": "Pull Request: #${{ github.event.pull_request.number }}"
+                          "title": "Issue Tracker",
+                          "subtitle": "Issue No: #${{ github.event.issue.number }}"
                       },
                       "sections": [
                           {
@@ -25,68 +34,41 @@ jobs:
                                   {
                                      "keyValue": {
                                           "topLabel": "Creator",
-                                          "content": "${{ github.event.pull_request.user.login }}"
+                                          "content": "${{ github.event.issue.user.login }}"
                                       },
                                    },
                                    {
                                      "keyValue": {
                                           "topLabel": "Title",
-                                          "content": "${{ github.event.pull_request.title }}"
+                                          "content": "${{ github.event.issue.title }}"
                                       }
                                    },
                                    {
                                      "keyValue": {
                                           "topLabel": "Assigned Lables",
-                                          "content": "- ${{ join(github.event.pull_request.labels.*.name) }}"
+                                          "content": "- ${{ join(github.event.issue.labels.*.name) }}"
                                       }
                                    },
                                    {
                                      "keyValue": {
                                           "topLabel": "Assignees",
-                                          "content": "- ${{ join(github.event.pull_request.assignees.*.login) }}"
+                                          "content": "- ${{ join(github.event.issue.assignees.*.login) }}"
                                       }
                                    },
                                    {
                                       "buttons": [
                                           {
                                               "textButton": {
-                                                  "text": "OPEN REQUEST",
+                                                  "text": "OPEN ISSUE",
                                                   "onClick": {
                                                       "openLink": {
-                                                          "url": "${{ github.event.pull_request.html_url }}"
+                                                          "url": "${{ github.event.issue.html_url }}"
                                                       }
                                                   }
                                               }
                                           }
                                       ]
                                   }
-                              ]
-                          }
-                      ]
-                  }
-              ]
-          }'
-      - name: Merged request
-        if: github.event.pull_request.merged == true
-        run: |
-          curl --location --request POST '${{ secrets.WEBHOOK }}' \
-          --header 'Content-Type: application/json' \
-          --data-raw '{
-              "cards": [
-                  {
-                      "header": {
-                          "title": "Merge Request",
-                          "subtitle": "Merge Request: #${{  github.event.number  }}"
-                      },
-                      "sections": [
-                          {
-                              "widgets": [
-                                  {
-                                    "keyValue": {
-                                          "topLabel": "Message",
-                                          "content": "PR #${{ github.event.number }} has been merged"
-                                      },
-                                  },
                               ]
                           }
                       ]
