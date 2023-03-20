@@ -4,21 +4,24 @@
             [zoom]="zoom"
             (mapClick)="moveMap($event)"
             (mapMousemove)="move($event)">
-<!--  <map-polygon [paths]="vertices"></map-polygon>-->
-  <map-polyline [path]="vertices"></map-polyline>
-<!--  <map-marker *ngFor="let markerPosition of markerPositions"-->
-<!--              [position]="markerPosition"-->
-<!--              [options]="markerOptions"></map-marker>-->
-<!--  <map-rectangle [bounds]="bounds"></map-rectangle>-->
-<!--  <map-circle [center]="circleCenter"-->
-<!--              [radius]="radius"></map-circle>-->
-<!--  <map-ground-overlay [url]="imageUrl"-->
-<!--                      [bounds]="imageBounds"></map-ground-overlay>-->
-<!--  <map-traffic-layer [autoRefresh]="false"></map-traffic-layer>-->
-<!--  <map-transit-layer></map-transit-layer>-->
-<!--  <map-bicycling-layer></map-bicycling-layer>-->
-<!--  <map-directions-renderer *ngIf="(directionsResults$ | async) as directionsResults"-->
-<!--                           [directions]="directionsResults"></map-directions-renderer>-->
-<!--  <map-directions-renderer *ngIf="(directionsResults1$ | async) as directionsResults"-->
-<!--                           [directions]="directionsResults"></map-directions-renderer>-->
+<!--    <map-polygon [paths]="vertices"></map-polygon>-->
+
+  <ng-container *ngFor="let i of polylineOptionsList">
+    <map-polyline [options]="i"></map-polyline>
+  </ng-container>
+<!--    <map-marker *ngFor="let markerPosition of markerPositions"-->
+<!--                [position]="markerPosition"-->
+<!--                [options]="markerOptions"></map-marker>-->
+
+  <!--  <map-rectangle [bounds]="bounds"></map-rectangle>-->
+<!--    <map-circle [options]="polylineOptions"></map-circle>-->
+<!--    <map-ground-overlay [url]="imageUrl"-->
+<!--                        [bounds]="imageBounds"></map-ground-overlay>-->
+<!--    <map-traffic-layer [autoRefresh]="false"></map-traffic-layer>-->
+  <!--  <map-transit-layer></map-transit-layer>-->
+  <!--  <map-bicycling-layer></map-bicycling-layer>-->
+<!--    <map-directions-renderer *ngIf="(directionsResults$ | async) as directionsResults"-->
+<!--                             [directions]="directionsResults"></map-directions-renderer>-->
+  <!--  <map-directions-renderer *ngIf="(directionsResults1$ | async) as directionsResults"-->
+  <!--                           [directions]="directionsResults"></map-directions-renderer>-->
 </google-map>
