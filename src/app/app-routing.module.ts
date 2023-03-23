@@ -5,6 +5,7 @@ import { LayoutComponent } from './layout/layout.component';
 const routes: Routes = [
   // Redirect empty path to '/dashboard'
   { path: '', pathMatch: 'full', redirectTo: 'dashboard' },
+  { path: 'sign-in', loadChildren: () => import('./modules/auth/sign-up/sign-up.module').then(m => m.SignUpModule) },
   {
     path: '',
     component: LayoutComponent,
