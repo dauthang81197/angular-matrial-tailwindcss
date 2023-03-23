@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @use 'styles/overrides/angular-material.scss';
+@use 'styles/overrides/main.scss';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

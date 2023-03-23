@@ -28,7 +28,7 @@
       "@app/*": ["src/app/*"],
       "@app/core": ["src/app/_core/index"],
       "@app/core/*": ["src/app/_core/*"],
-      "@app/shared": ["src/app/_shared/index"],
+      "@app/shared": ["src/app/shared"],
       "@app/shared/*": ["src/app/_shared/*"],
       "@testing": ["src/testing/index"],
       "@testing/*": ["src/testing/*"]
