@@ -8,7 +8,6 @@ import { Component, Input, OnInit } from '@angular/core';
 export class BreadCrumbComponent implements OnInit {
   breadcrumbs: { label: string, value: string }[] = [];
   @Input() set setBreadCrumbs(value: { label: string; value: string }[]) {
-    console.log(value)
     this.breadcrumbs = value
 }
 

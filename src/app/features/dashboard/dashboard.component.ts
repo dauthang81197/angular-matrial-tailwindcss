@@ -15,14 +15,11 @@ export class DashboardComponent implements OnInit {
         map(() => true),
         catchError(() => of(false)),
       );
-    console.log(this.apiLoaded)
   }
 
   ngOnInit(): void {
   }
 
-  center: google.maps.LatLngLiteral = {lat: 24, lng: 12};
-  zoom = 4;
 
 
 

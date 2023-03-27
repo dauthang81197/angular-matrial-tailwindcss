@@ -30,6 +30,8 @@
       "@app/core/*": ["src/app/_core/*"],
       "@app/shared": ["src/app/shared"],
       "@app/shared/*": ["src/app/_shared/*"],
+      "@app/auth": ["src/app/core/auth"],
+      "@app/auth/*": ["src/app/core/auth/*"],
       "@testing": ["src/testing/index"],
       "@testing/*": ["src/testing/*"]
     }

@@ -7,6 +7,9 @@ import { LayoutModule } from './layout/layout.module';
 import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { environment } from '@env/environment';
+import { THANGDT_API_URL, ThangdtApiService } from '@app/thangdt-api/thangdt-api.service';
+import { AuthService } from '@app/auth/auth.service';
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -18,7 +21,13 @@ import { HttpClientModule } from '@angular/common/http';
     LayoutModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: THANGDT_API_URL,
+      useValue: environment.baseUrl,
+    },
+
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

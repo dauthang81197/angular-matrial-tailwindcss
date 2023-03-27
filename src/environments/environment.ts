@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiKeyAgm: ''
+  apiKeyAgm: '',
+  baseUrl: 'http://localhost:3000/'
 };
 
 /*

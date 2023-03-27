@@ -17,15 +17,12 @@ export class LayoutComponent implements OnInit {
       filter(event => event instanceof NavigationEnd)
     ).subscribe((event: any) => {
       const breadcrumb = event.url.split("/").splice(1, event.url.split("/").length -1);
-      console.log(breadcrumb)
       this.breadcrumb = breadcrumb.map((item: string) => {
         return {
           value: item,
           label: capitalizeFirstLetter(item)
         }
       })
-
-      console.log( this.breadcrumb)
     });
   }
 

@@ -32,7 +32,7 @@ const SHARED_EXPORTS_MODULES = [...SHARED_MODULES, ...MATERIAL_MODULES, ...AGM_M
   declarations: [
     ...SHARED_COMPONENTS,
   ],
-  exports: [...SHARED_COMPONENTS, ...SHARED_EXPORTS_MODULES],
+    exports: [...SHARED_COMPONENTS, ...SHARED_EXPORTS_MODULES, TextFieldComponent],
 })
 export class SharedModule {
 }
