@@ -14,8 +14,23 @@
   <!--    Right-->
   <div class="flex items-center justify-center gap-4">
     <input placeholder="Search here" />
-    <mat-icon>account_circle</mat-icon>
+    <mat-icon [matMenuTriggerFor]="menu" class="cursor-pointer">account_circle</mat-icon>
     <mat-icon>settings</mat-icon>
     <mat-icon [matBadge]="'1'">notifications</mat-icon>
   </div>
 </div>
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item>
+    <mat-icon>dialpad</mat-icon>
+    <span>Redial</span>
+  </button>
+  <button mat-menu-item disabled>
+    <mat-icon>voicemail</mat-icon>
+    <span>Check voice mail</span>
+  </button>
+  <button mat-menu-item (click)="logout()">
+    <mat-icon>logout</mat-icon>
+    <span>Logout</span>
+  </button>
+</mat-menu>

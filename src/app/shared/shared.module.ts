@@ -13,10 +13,11 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 import { GoogleMapCustomComponent } from './components/google-map-custom/google-map-custom.component';
 import { GoogleMapsModule } from '@angular/google-maps';
+import { MatMenuModule } from '@angular/material/menu';
 
 const SHARED_COMPONENTS = [BreadCrumbComponent, TextFieldComponent, GoogleMapCustomComponent]
 
-const MATERIAL_MODULES = [MatIconModule, MatToolbarModule, MatButtonModule, MatInputModule, MatBadgeModule, MatSlideToggleModule]
+const MATERIAL_MODULES = [MatIconModule, MatToolbarModule, MatButtonModule, MatInputModule, MatBadgeModule, MatSlideToggleModule, MatMenuModule]
 
 const SHARED_MODULES = [CommonModule, ReactiveFormsModule, FormsModule];
 
@@ -32,7 +33,7 @@ const SHARED_EXPORTS_MODULES = [...SHARED_MODULES, ...MATERIAL_MODULES, ...AGM_M
   declarations: [
     ...SHARED_COMPONENTS,
   ],
-    exports: [...SHARED_COMPONENTS, ...SHARED_EXPORTS_MODULES, TextFieldComponent],
+  exports: [...SHARED_COMPONENTS, ...SHARED_EXPORTS_MODULES, TextFieldComponent],
 })
 export class SharedModule {
 }

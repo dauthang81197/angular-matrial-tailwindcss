@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { AuthService } from '@app/auth/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -13,10 +15,16 @@ export class HeaderComponent implements OnInit {
     this.breadCrumb = value
   }
 
-  constructor() {
+  constructor(private _authService: AuthService, private _router: Router,) {
+
   }
 
   ngOnInit(): void {
+  }
+
+  logout(): void {
+    this._authService.signOut().subscribe(() => {});
+    void this._router.navigate(['sign-in']);
   }
 
 }

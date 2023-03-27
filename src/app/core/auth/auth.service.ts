@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, of, switchMap, throwError } from 'rxjs';
 import { Login, ThangdtApiService } from '@app/thangdt-api/thangdt-api.service';
 import { SessionStorageService } from 'src/app/shared/services/session-storage-service.service';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -10,12 +11,14 @@ import { SessionStorageService } from 'src/app/shared/services/session-storage-s
 export class AuthService {
 
   private _authenticated: boolean = false;
-    constructor(http: HttpClient, private _thangdtApiService: ThangdtApiService, private _sessionStorageService: SessionStorageService) {
 
-    }
+  constructor(http: HttpClient, private _thangdtApiService: ThangdtApiService, private _sessionStorageService: SessionStorageService) {
 
-  get accessToken(): string {
-    return this._sessionStorageService.getData('accessToken') ?? '';
+  }
+
+  // @ts-ignore
+  get accessToken(): string | null {
+    return this._sessionStorageService.getData('accessToken');
   }
 
   set accessToken(token: string) {
@@ -48,14 +51,16 @@ export class AuthService {
 
   check(): Observable<boolean> {
     // Check if the user is logged in
-    if(this._authenticated) {
+
+    if (this._authenticated) {
       return of(true);
     }
 
     // Check the access token availability
-    if(this.accessToken) {
+    if (this.accessToken) {
       return of(true);
     }
+
 
     // Check the access token expire date
     return of(false);
@@ -64,10 +69,8 @@ export class AuthService {
   signOut(): Observable<any> {
     // Remove the access token from the local storage
     this._sessionStorageService.removeData('accessToken');
-
     // Set the authenticated flag to false
     this._authenticated = false;
-
     // Return the observable
     return of(true);
   }
