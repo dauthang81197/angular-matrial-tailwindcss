@@ -1,22 +1,25 @@
-<div class="flex p-5 bg-linear-white">
-  <div class="w-[50%]">
-    <img class="h-[calc(100vh-3.5rem)] min-w-[756px] max-w-[756px] object-cover rounded-lg" src="/assets/images/backgrounds/bg-login.png" alt=""/>
-  </div>
-  <div class="flex w-[50%] items-center justify-center">
-    <div class="flex flex-col gap-5 w-[360px]">
-      <h2 class="text-[22px] font-bold text-linear-dark-blue text-center">Sign In</h2>
-      <p class="text-base font-normal text-linear-gray text-center">Enter your email and password to Sign In</p>
-      <app-text-field label="Email"></app-text-field>
-      <app-text-field label="Current password"></app-text-field>
-      <mat-slide-toggle
-        class="text-linear-grey text-base"
-        [color]="'primary'"
-        [checked]="false">
-        Remember me
-      </mat-slide-toggle>
-      <button class="bg-gradients-red text-white text-xs font-bold" mat-button>SIGN IN</button>
-      <p class="text-center">Don't have an account ? <a class="text-sm text-linear-red cursor-pointer">Sign up</a></p>
+<form [formGroup]="formGroup">
+  <div class="flex p-5 bg-linear-white">
+    <div class="w-[50%]">
+      <img class="h-[calc(100vh-3.5rem)] min-w-[756px] max-w-[756px] object-cover rounded-lg" src="/assets/images/backgrounds/bg-login.png" alt=""/>
     </div>
+    <div class="flex w-[50%] items-center justify-center">
+      <div class="flex flex-col gap-5 w-[360px]">
+        <h2 class="text-[22px] font-bold text-linear-dark-blue text-center">Sign In</h2>
+        <p class="text-base font-normal text-linear-gray text-center">Enter your email and password to Sign In</p>
+        <app-text-field label="Email" [propsFormGroup]="formGroup" [propsFormControlName]="'email'"></app-text-field>
+        <app-text-field label="Password" type="password" [propsFormGroup]="formGroup" [propsFormControlName]="'password'"></app-text-field>
+        <mat-slide-toggle
+          class="text-linear-grey text-base"
+          [color]="'primary'"
+          [checked]="false">
+          Remember me
+        </mat-slide-toggle>
+        <button class="bg-gradients-red text-white text-xs font-bold" mat-button (click)="signIn()">SIGN IN</button>
+        <p class="text-center">Don't have an account ? <a class="text-sm text-linear-red cursor-pointer">Sign up</a></p>
+      </div>
 
+    </div>
   </div>
-</div>
+</form>
+
