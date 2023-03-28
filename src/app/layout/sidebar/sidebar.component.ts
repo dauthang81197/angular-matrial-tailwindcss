@@ -48,7 +48,21 @@ export class SidebarComponent implements OnInit {
             isOpen: false,
           }
         ],
-      }
+      },
+      {
+        name: 'Games',
+        icon: 'sports_esports',
+        level: 1,
+        isOpen: false,
+        children: [
+          {
+            name: 'Poker',
+            link: 'games/poker',
+            icon: 'monetization_on',
+            isOpen: false,
+          },
+        ],
+      },
     ]
   }
 

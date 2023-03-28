@@ -1,3 +1,13 @@
 .material-icons {
   color: white
 }
+
+.mat-dialog-container {
+  position: absolute !important;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) !important;
+  width: 1000px !important;
+  height: 700px !important;
+}
