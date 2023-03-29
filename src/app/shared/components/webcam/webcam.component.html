@@ -1,0 +1,7 @@
+<div class="container mt-5">
+  <webcam
+    [height]="height"
+    [trigger]="invokeObservable"
+    (imageCapture)="captureImg($event)"
+  ></webcam>
+</div>
