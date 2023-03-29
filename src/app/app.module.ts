@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { environment } from '@env/environment';
 import { THANGDT_API_URL } from '@app/thangdt-api/thangdt-api.service';
+
 @NgModule({
   declarations: [AppComponent],
   imports: [

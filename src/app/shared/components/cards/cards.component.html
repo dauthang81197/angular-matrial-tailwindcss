@@ -1,1 +1,2 @@
-<img width="50" height="50" [src]="'assets/images/cards/' + name" alt=""/>
+<img [ngClass]="isActive ? 'isActive' : ''" width="50" height="50" [src]="'assets/images/cards/' + name + '.svg'"
+     alt=""/>

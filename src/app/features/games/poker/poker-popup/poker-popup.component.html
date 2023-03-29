@@ -1,11 +1,33 @@
 <div class="background-image cover">
-    <div class="pt-[190px] flex justify-center gap-3">
-      <app-cards></app-cards>
-      <app-cards></app-cards>
-    </div>
+  <div class="flex justify-center">
+    <p class="text-red-500">Timer: {{timeRound}}</p>
+  </div>
+  <div class="pt-[168px] flex justify-center gap-1">
+    <ng-container *ngFor="let i of cardsOfPlayer1">
+      <div class="h-[72px] w-[50px] border-solid border-2 border-indigo-800">
+        <app-cards [setIsActive]="isActive" [name]="i"></app-cards>
+      </div>
+    </ng-container>
+  </div>
+  <div class="pt-[25px] flex justify-center gap-3">
+    <ng-container *ngFor="let i of cardsPlay">
+      <div class="h-[72px] w-[50px] border-solid border-2 border-indigo-800">
+        <app-cards [setIsActive]="isActive" [name]="i.name"></app-cards>
+      </div>
+    </ng-container>
+  </div>
+  <div class="pt-[25px] flex justify-center gap-1">
+    <ng-container *ngFor="let i of cardsOfPlayer2">
+      <app-cards [setIsActive]="isActive" [name]="i"></app-cards>
+    </ng-container>
+  </div>
 
-    <div class="pt-[125px] flex justify-center gap-3">
-      <app-cards></app-cards>
-      <app-cards></app-cards>
-    </div>
+  <div>
+    <button mat-raised-button (click)="openCards()">Check</button>
+    <button mat-raised-button (click)="resetCards()">Reset</button>
+  </div>
+  <div class="h-50 w-50 flex justify-center">
+<!--    <app-webcam [height]="100"></app-webcam>-->
+  </div>
+
 </div>
